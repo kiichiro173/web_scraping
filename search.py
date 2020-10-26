@@ -67,7 +67,9 @@ def main():
     
     #データフレームにしてCSVで保存する。
     jurnal = pd.DataFrame({"Title":title_list , "Author":author_list , "Media":media_list})
-    jurnal.to_csv(str(sys.argv[1] + '/' + str(sys.argv[1]) + '.csv'))
+    
+    #文字化けを防ぐためにエンコーディングを行っている。
+    jurnal.to_csv(str(sys.argv[1] + '/' + str(sys.argv[1]) + '.csv'),encoding='utf_8_sig')
     print('ファイルを作成しました。')
     print(jurnal.head())
 
